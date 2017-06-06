@@ -18,7 +18,7 @@ run:
 
 run_tests:
 	$(eval TARGET_IP=$(shell docker inspect --format '{{ .NetworkSettings.IPAddress }}' $(INSTANCE_NAME)))
-	docker run --rm -it -v ${PWD}/robot/reports:/root/robotframework_test/reports \
+	docker run --rm -v ${PWD}/robot/reports:/root/robotframework_test/reports \
 		-e TARGET_IP=$(TARGET_IP) robot-docker:latest
 
 stop:
