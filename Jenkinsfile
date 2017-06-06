@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'make build_all'
+                sh 'make build'
             }
         }
         stage('Deploy staging') {
@@ -22,7 +22,12 @@ pipeline {
                 sh 'make run'
             }
         }
-        stage('Staging tests') {
+        stage('Staging tests: prepare') {
+            steps {
+                sh 'make build_tests'
+            }
+        }
+        stage('Staging tests: run') {
             steps {
                 sh 'make run_tests'
             }

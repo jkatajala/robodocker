@@ -26,4 +26,3 @@ stop:
 
 clean: stop
 	docker rmi -f $(DOCKER_IMAGE):$(DOCKER_TAG)
-	docker rmi -f $(DOCKER_TEST_IMAGE):$(DOCKER_TAG)
