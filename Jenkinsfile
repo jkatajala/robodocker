@@ -1,31 +1,42 @@
+#!groovy
+
 pipeline {
-    agent any
+    agent {
+        label 'jenkins-slaves'
+    }
+
+    options {
+        timeout(time: 15, unit: 'MINUTES')
+        timestamps()
+        buildDiscarder(logRotator(numToKeepStr: '30'))
+    }
 
     stages {
         stage('Build') {
             steps {
-                make build
+                sh 'make build'
             }
         }
         stage('Prepare tests') {
             steps {
-                make build_tests
+                sh 'make build_tests'
             }
         }
         stage('Deploy staging') {
             steps {
-                make run
+                sh 'make run'
             }
         }
         stage('Test') {
             steps {
-                make run_tests
+                sh 'make run_tests'
             }
         }
         stage('Cleanup') {
             steps {
-                make stop
+                sh 'make stop'
             }
         }
     }
 }
+
