@@ -14,12 +14,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'make build'
-            }
-        }
-        stage('Prepare tests') {
-            steps {
-                sh 'make build_tests'
+                sh 'make build_all'
             }
         }
         stage('Deploy staging') {
@@ -27,16 +22,15 @@ pipeline {
                 sh 'make run'
             }
         }
-        stage('Test') {
+        stage('Staging tests') {
             steps {
                 sh 'make run_tests'
             }
         }
         stage('Cleanup') {
             steps {
-                sh 'make stop'
+                sh 'make clean'
             }
         }
     }
 }
-
