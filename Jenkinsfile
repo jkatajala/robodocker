@@ -2,7 +2,7 @@
 
 pipeline {
     agent {
-        label 'jenkins-slaves'
+        label 'swarm'
     }
 
     options {
