@@ -18,6 +18,6 @@ You need:
 1. Jenkins (obviously)
 2. Pipeline plugin
 3. Jenkins slave node with Docker and make installed
-4. Above mentioned slave node labeled with 'jenkins-slaves'
+4. Above mentioned slave node labeled with 'swarm'
 
 Easiest way to run is to install Blue Ocean plugin and let it handle configuration.
