@@ -2,11 +2,29 @@
 
 Based on [Robot Framework Demo](https://bitbucket.org/robotframework/robotdemo)
 
-## Quick guide
+## Build
 
 ```
 make build_all
+```
+
+## Run
+
+```
 make run
+```
+
+Make prints out the IP address of the application. To login use username _demo_ and password _mode_.
+
+## Stop
+
+```
+make stop
+```
+
+## Run tests
+
+```
 make run_tests
 ```
 
